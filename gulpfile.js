@@ -5,9 +5,11 @@ var responsive = require('gulp-responsive');
 var runSequence = require('run-sequence');
 var del = require('del');
 
+var qual = 80;
+
 // console task for syntax reference
 gulp.task('hello', function() {
-	console.log('Hello World, type y');
+	console.log('Hello World');
 })
 
 // Start browser-sync server
@@ -40,12 +42,56 @@ gulp.task('watch', function(){
 gulp.task('images', function(){
 	return gulp.src('images-src/*') // Images getter
 		.pipe(responsive({ // Task running
-			'*cover*': [{
-				width: 2048px,
-				quality: 50
-				rename:(suffi) // To be continued
-				//quality: 30 //
-			}] // Add more filetypes or properties after this here
+			'*cover.+(png|jpg)': [{
+				width: 900,
+				quality: qual,
+				rename: ({
+					suffix: "-1x"
+				})
+			},{
+				width: 1350,
+				quality: qual,
+				rename: ({
+					suffix: "-1.5x"
+				})
+			}],
+			'*cover-closeup.+(png|jpg)':[{
+				width: 600,
+				quality: qual,
+				rename:({
+					suffix: "-1x"
+				})
+			},{
+				width: 900,
+				quality: qual,
+				rename:({
+					suffix: "-1.5x"
+				})
+			}],
+			'logo*': [{
+				width:200,
+				quality: qual,
+				rename:({
+					suffix: "-200w"
+				})},{
+				width:100,
+				quality: qual,
+				rename:({
+					suffix: "-100w"
+				})
+			}],
+			'!*+(cover|logo)*': [{ // For secou
+				width:400, 
+				quality : qual,
+				rename:({
+					suffix: "-1x"
+				})},{
+				width: 750,
+				quality: qual,
+				rename:({
+					suffix:"-2x"
+				})
+			}]
 		}))
 		.pipe(gulp.dest('dist/images')); // Set destination for optimized images
 }); 

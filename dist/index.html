@@ -14,22 +14,26 @@
 	<body>
 		<div class="container">
 			<div class="row">
-				<div class="col-md-6">
-					<img class="image-responsive title-logo" src="images/logo.png" alt="Logo">
+				<div class="col-md-4">
+					<img  class="image-responsive title-logo" src="images/logo-100w.png" sizes="(min-width:640px) 200px, 100px" srcset="images/logo-100w.png 100w, images/logo-200w.png 200w" alt="Logo">
 				</div>
-				<div class="col-md-6 text-right text-uppercase">
-					<h1 class="title-super text-thin">Anders Hodor</h1>
-					<h4>Full stack engineer</h4>
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-md-12">
-				<hr>
+				<div class="col-md-8 pull-right">
+					<h1 class="title-super text-thin-right">Anders Hodor</h1>
+					<h3 class="text-thin-right">Full stack engineer</h3>
 				</div>
 			</div>
 			<div class="row">
 				<div class="col-md-12">
-					<img class="img-responsive" src="images/header.png" alt="Page header">					
+					<hr>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-12">
+				<!-- Responsive header -->
+				<picture>
+					<source media="screen and (min-width:600px)" srcset="images/cover-1x.jpg 1x, images/cover-1.5x.jpg 1.5x">
+					<img class="image-responsive" src="images/cover-closeup-1x.jpg" srcset="images/cover-closeup-1.5x.jpg 1.5x" alt="Page header">
+				</picture>
 				</div>
 			</div>
 			<div class="row">
@@ -37,21 +41,34 @@
 					<h2>Featured work</h2>
 				</div>
 			</div>
-		<!-- Row -->
+		<!-- Row of three -->
 			<div class="row text-center">
 				<div class="col-md-4">
-					<img class="img-responsive" src="images/Mechatronics.png" alt="BSc Mechatronics engineer">
-					<h3 class="text-uppercase">Mechatronics engineer</h3>
+					<picture>
+					<div class="img-wrapper">
+						<img class="img-responsive" src="images/Mechatronics-1x.png" srcset="images/Mechatronics-2x.png 2x" alt="BSc Mechatronics engineer">
+						
+					</div>
+					</picture>
+					<h3>BSc Mechatronics</h3>
+						<p>www.github.com/andurshurrdurr</p>
+				</div>	
+				<div class="col-md-4">
+					<div class="img-wrapper">
+					<picture>
+						<img class="img-responsive" src="images/Crowdfunding-1x.jpg" srcset="images/Crowdfunding-2x.jpg 2x" alt="Successful crowdfundingcampaign">	
+					</picture>
+					</div>
+					<h3>Successful crowdfunder</h3>
 					<p>www.github.com/andurshurrdurr</p>
 				</div>	
 				<div class="col-md-4">
-					<img class="img-responsive" src="images/Crowdfunding.jpeg" alt="Successful crowdfundingcampaign">
-					<h3 class="text-uppercase">Successful crowdfunder</h3>
-					<p>www.github.com/andurshurrdurr</p>
-				</div>	
-				<div class="col-md-4">
-					<img class="img-responsive" src="images/Mechatronics.png" alt="appify kitty">
-					<h3 class="text-uppercase">Kittify</h3>
+				<picture>
+					<div class="img-wrapper">
+						<img class="img-responsive" src="images/IoT-1x.png" srcset="images/IoT-2x.png 2x" alt="Experienced with IoT">
+					</picture>
+					</div>
+					<h3>IoT passionado</h3>
 					<p>www.github.com/andurshurrdurr</p>
 				</div>
 			</div>
