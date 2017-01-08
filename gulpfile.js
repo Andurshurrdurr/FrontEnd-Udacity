@@ -7,11 +7,6 @@ var del = require('del');
 
 var qual = 80;
 
-// console task for syntax reference
-gulp.task('hello', function() {
-	console.log('Hello World');
-})
-
 // Start browser-sync server
 
 gulp.task('browserSync', function() {
@@ -19,7 +14,7 @@ gulp.task('browserSync', function() {
     server: {
       baseDir: 'dist'
     }
-  })
+  });
 })
 
 
@@ -29,9 +24,9 @@ gulp.task('browserSync', function() {
 gulp.task('watch', function(){
 	gulp.watch('dist/*.+(html|css)', browserSync.reload);
 	gulp.watch('dist/images/*', browserSync.reload);
-	gulp.watch('*.html', ['html'])
-	gulp.watch('css/*.css', ['css'])
-})
+	gulp.watch('*.html', ['html']);
+	gulp.watch('css/*.css', ['css']);
+});
 
 // Optimization/building tasks
 
@@ -102,13 +97,13 @@ gulp.task('html', function(){ // Move or minify html to dist
 	return gulp.src('*.html')
 	// Do some operation here, otherwise just move the file
 		.pipe(gulp.dest('dist/'));
-})
+});
 
 gulp.task('css', function(){ // Move or minify css to dist
 	return gulp.src('css/*.css')
 	// Do some operation here, otherwise just move the file
 		.pipe(gulp.dest('dist/css/'));
-})
+});
 
 // Cleaning tasks
 
@@ -121,9 +116,9 @@ gulp.task('clean:dist', function(){
 // Build sequences --------------------------------------------
 
 gulp.task('build', function(callback){
-	runSequence('clean:dist', ['html', 'css', 'images'], callback)
-})
+	runSequence('clean:dist', ['html', 'css', 'images'], callback);
+});
 
 gulp.task('default', function(callback){
-	runSequence('browserSync', 'watch', callback)
-})
+	runSequence('browserSync', 'watch', callback);
+});
